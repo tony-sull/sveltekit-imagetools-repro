@@ -1,6 +1,17 @@
 <script lang="ts" context="module">
 	export async function load() {
-		const { default: successkid } = await import('../static/successkid.jpg?width=500');
+		const image = 'successkid';
+
+		/**
+		 * This runs fine in dev but the production build fails with
+		 * Error: Unknown variable dynamic import: ../static/successkid.jpg?width=500
+		 *
+		 * This works fine in production builds if you remove the query parameters,
+		 * but that kind of defeats the purpose of vite imagetools
+		 *
+		 * https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations
+		 */
+		const { default: successkid } = await import(`../static/${image}.jpg?width=500`);
 
 		return {
 			props: {
