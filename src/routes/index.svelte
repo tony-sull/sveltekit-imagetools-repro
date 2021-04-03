@@ -1,6 +1,19 @@
+<script lang="ts" context="module">
+	export async function load() {
+		const { default: successkid } = await import('../static/successkid.jpg?width=500');
+
+		return {
+			props: {
+				successkid
+			}
+		};
+	}
+</script>
+
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
-	import successkid from '../static/successkid.jpg?width=500';
+
+	export let successkid: string;
 </script>
 
 <main>
