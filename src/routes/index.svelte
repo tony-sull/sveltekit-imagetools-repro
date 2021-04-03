@@ -1,8 +1,11 @@
 <script lang="ts">
 	import Counter from '$lib/Counter.svelte';
+	import successkid from '../static/successkid.jpg?width=500';
 </script>
 
 <main>
+	<img src={successkid} />
+
 	<h1>Hello world!</h1>
 
 	<Counter />
